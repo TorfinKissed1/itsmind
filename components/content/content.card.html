@@ -1,0 +1,51 @@
+<!-- @dsCard group="Components" viewport="700x560" name="Content — Header, Stats, Card, Marquee" subtitle="Section headers, metric blocks, surface cards, scrolling ticker" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-body);padding:28px 30px}
+  .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin:0 0 14px}
+  .grp{margin-bottom:30px}
+  .stats{display:flex;gap:40px;flex-wrap:wrap}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  h3{font-family:var(--font-display);font-weight:700;font-size:var(--fs-h4);margin:0 0 8px}
+  .cards p{color:var(--text-secondary);font-size:var(--fs-small);line-height:1.6;margin:0}
+</style>
+</head>
+<body>
+  <div class="grp"><div class="lbl">Section header</div><span data-c="header"></span></div>
+  <div class="grp"><div class="lbl">Stat blocks</div><div class="stats" data-c="stats"></div></div>
+  <div class="grp"><div class="lbl">Cards (with corner index)</div><div class="cards" data-c="cards"></div></div>
+  <div class="grp"><div class="lbl">Marquee</div><div data-c="marquee"></div></div>
+
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script type="text/babel">
+  const { SectionHeader, StatBlock, Card, Marquee } = window.LstmindDesignSystem_9805c3;
+  const R = (sel, node) => ReactDOM.createRoot(document.querySelector(sel)).render(node);
+
+  R('[data-c="header"]', <SectionHeader index="02" kicker="Что я делаю"
+      title={<>От точечной правки до <em>сайта под ключ</em></>}
+      lead="Берусь и за большие проекты с нуля, и за аккуратные доработки." />);
+
+  R('[data-c="stats"]', <>
+    <StatBlock value="5+" label="лет в коммерческом коде" />
+    <StatBlock value="5.0" mark="★" label="высший рейтинг на Kwork" />
+    <StatBlock value="1500₽" label="в час · по проекту фикс" />
+  </>);
+
+  R('[data-c="cards"]', <>
+    <Card index="01"><h3>Грузится вечность</h3><p>5 секунд загрузки — и половина посетителей ушла к конкуренту.</p></Card>
+    <Card index="02"><h3>Непонятно, что продаёшь</h3><p>На первом экране каша вместо оффера — человек закрыл вкладку.</p></Card>
+  </>);
+
+  R('[data-c="marquee"]', <Marquee items={["Сайты под ключ","Спасение чужих сайтов","Интернет-магазины","Ускорение","WooCommerce","Вёрстка по Figma"]} />);
+</script>
+</body>
+</html>

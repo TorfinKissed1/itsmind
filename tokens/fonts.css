@@ -1,0 +1,10 @@
+/* lstmind webfonts — "crimson poster" type system (all Cyrillic-capable).
+   Display: Oswald — condensed gothic, the raw esports-poster "wow" voice (UPPER).
+   Serif:   Playfair Display — high-contrast cinematic accent for one emphasized
+            word per headline (the ENDLESS-DREAM engraved counterpoint, italic).
+   Body/UI: Manrope — clean modern grotesk, highly readable Russian text.
+   Mono:    JetBrains Mono — scattered indices, coordinates, prices, labels.
+   Brand:   Unbounded — futuristic geometric signature for header + footer only.
+   NOTE: chosen Google Fonts (free, licensed for web, full Cyrillic subset).
+   Swap the families here if the brand later standardizes on licensed faces. */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;600;800;900&display=swap");

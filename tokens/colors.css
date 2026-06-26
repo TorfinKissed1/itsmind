@@ -1,0 +1,99 @@
+/* ===========================================================================
+   lstmind — COLOR TOKENS
+   Direction: warm ink black-and-white abstraction + a single BLOOD-RED accent.
+   Cinematic oxblood grunge (refs: ENDLESS DREAM poster + Noguchi red palette
+   #75020f / #51080d / #2b0307). Base is a warm near-black; content off-white;
+   one deep crimson light source, with a rare bright spark for true emphasis.
+   =========================================================================== */
+:root {
+  /* --- Ink scale (warm near-black, faint blood undertone) -------------- */
+  --ink-1000: #050306;
+  --ink-900:  #0a0608;   /* canvas base — warm ink */
+  --ink-800:  #100a0d;
+  --ink-700:  #170f13;
+  --ink-600:  #1f151b;   /* echoes the palette-card #19171b */
+  --ink-500:  #2a1c23;
+  --ink-400:  #38272f;
+  --ink-300:  #48343d;
+
+  /* --- Fog scale (text, on-dark neutrals) ------------------------------ */
+  --fog-000:  #ffffff;
+  --fog-100:  #f3f3f1;   /* primary text */
+  --fog-200:  #d8d8da;
+  --fog-300:  #b4b4ba;
+  --fog-400:  #8a8a93;   /* secondary text */
+  --fog-500:  #5e5e68;   /* muted / captions */
+  --fog-600:  #3a3a43;
+
+  /* --- Blood-red accent (default) — oxblood ramp to a bright spark ----- */
+  --blood-50:   #ff6b6f;   /* the bright SPARK — used very rarely */
+  --blood-100:  #ff3b41;
+  --blood-300:  #e11822;
+  --blood-500:  #b50912;   /* core accent — vivid crimson on warm black */
+  --blood-700:  #75020f;   /* deep oxblood (palette card) */
+  --blood-900:  #51080d;   /* dark oxblood (palette card) */
+  --blood-950:  #2b0307;   /* near-black blood (palette card) */
+
+  /* --- Acid green kept as an optional alternate (off by default) ------- */
+  --acid-300: #d4fb6b;
+  --acid-500: #c6f135;
+  --acid-700: #a6cf18;
+
+  /* --- Hairlines / borders (faint warm white) -------------------------- */
+  --line-soft:   rgba(255, 240, 240, 0.06);
+  --line:        rgba(255, 235, 235, 0.11);
+  --line-strong: rgba(255, 225, 225, 0.20);
+  --line-blood:  rgba(181, 9, 18, 0.45);
+
+  /* --- Status --------------------------------------------------------- */
+  --ok:   #3ddc8b;
+  --warn: #ffc24b;
+  --err:  #ff5c5c;
+
+  /* =====================================================================
+     SEMANTIC ALIASES — reference these in components, not raw values.
+     ===================================================================== */
+  --bg-base:      var(--ink-900);
+  --bg-sunken:    var(--ink-1000);
+  --bg-elevated:  var(--ink-800);
+  --surface-card: var(--ink-800);
+  --surface-card-hover: var(--ink-700);
+  --surface-inset: var(--ink-700);
+
+  --text-primary:   var(--fog-100);
+  --text-secondary: var(--fog-400);
+  --text-muted:     var(--fog-500);
+  --text-on-accent: var(--ink-1000);
+  --text-inverse:   var(--ink-1000);
+
+  --border:        var(--line);
+  --border-soft:   var(--line-soft);
+  --border-strong: var(--line-strong);
+
+  --accent:         var(--blood-500);   /* deep crimson — the single light source */
+  --accent-bright:  var(--blood-100);
+  --accent-dim:     var(--blood-700);
+  --accent-spark:   var(--blood-50);     /* the rare bright spark for true emphasis */
+  --accent-deep:    var(--blood-900);
+  --accent-wash:    rgba(181, 9, 18, 0.13);
+  --accent-glow:    rgba(181, 9, 18, 0.55);
+  --accent-glow-soft: rgba(117, 2, 15, 0.35);
+  --accent-contrast: var(--fog-000);
+  --text-on-accent:  var(--fog-000);
+
+  /* Blood surfaces — for emphasized panels / duotone tints */
+  --surface-blood:   #18070a;
+  --surface-blood-2: #240a0e;
+}
+
+/* Acid-green alternate — opt in with [data-accent="green"] if ever needed. */
+:root[data-accent="green"] {
+  --accent:         var(--acid-500);
+  --accent-bright:  var(--acid-300);
+  --accent-dim:     var(--acid-700);
+  --accent-spark:   var(--acid-300);
+  --accent-wash:    rgba(198, 241, 53, 0.12);
+  --accent-glow:    rgba(198, 241, 53, 0.45);
+  --accent-contrast: var(--ink-1000);
+  --text-on-accent:  var(--ink-1000);
+}

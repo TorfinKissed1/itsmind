@@ -1,0 +1,50 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Motion — NeonField + Reveal" subtitle="Ambient living background; the shared rise+fade reveal" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-body)}
+  .stage{position:relative;overflow:hidden;min-height:360px;padding:34px 36px;box-sizing:border-box}
+  .top{position:relative;z-index:1}
+  .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin:0 0 18px}
+  h2{font-family:var(--font-display);font-weight:700;font-size:var(--fs-h2);margin:0 0 18px;letter-spacing:-.02em}
+  h2 em{font-style:normal;color:var(--accent);text-shadow:var(--glow-text)}
+  .chips{display:flex;gap:12px;flex-wrap:wrap}
+  .chip{border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 18px;background:var(--surface-card);
+        font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary)}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div data-c="field"></div>
+    <div class="top">
+      <p class="lbl">NeonField background · Reveal cascade ↓</p>
+      <span data-c="content"></span>
+    </div>
+  </div>
+
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script type="text/babel">
+  const { NeonField, Reveal } = window.LstmindDesignSystem_9805c3;
+  ReactDOM.createRoot(document.querySelector('[data-c="field"]')).render(<NeonField />);
+  ReactDOM.createRoot(document.querySelector('[data-c="content"]')).render(
+    <div>
+      <Reveal index={0}><h2>Живой <em>фон</em>, единая анимация</h2></Reveal>
+      <Reveal variant="left" index={1} className="chips" as="div" style={{display:'flex',gap:12,flexWrap:'wrap'}}>
+        <span className="chip">rise + fade</span>
+        <span className="chip">stagger 70ms</span>
+        <span className="chip">ease-out</span>
+        <span className="chip">reduced-motion safe</span>
+      </Reveal>
+    </div>
+  );
+</script>
+</body>
+</html>

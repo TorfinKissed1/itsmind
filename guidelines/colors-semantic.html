@@ -1,0 +1,21 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Semantic roles" subtitle="Reference these aliases, not raw values" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+<link rel="stylesheet" href="../styles.css"/>
+<style>
+ html,body{margin:0}body{background:var(--bg-base);font-family:var(--font-mono);padding:20px 22px}
+ .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+ .cell{border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden}
+ .chip{height:46px}
+ .t{padding:8px;font-size:9.5px;color:var(--text-secondary);letter-spacing:.04em}
+</style></head><body>
+ <div class="grid">
+  <div class="cell"><div class="chip" style="background:var(--surface-card)"></div><div class="t">--surface-card</div></div>
+  <div class="cell"><div class="chip" style="background:var(--surface-inset)"></div><div class="t">--surface-inset</div></div>
+  <div class="cell"><div class="chip" style="background:var(--accent)"></div><div class="t">--accent</div></div>
+  <div class="cell"><div class="chip" style="background:var(--accent-wash)"></div><div class="t">--accent-wash</div></div>
+  <div class="cell"><div class="chip" style="background:var(--text-primary)"></div><div class="t">--text-primary</div></div>
+  <div class="cell"><div class="chip" style="background:var(--text-secondary)"></div><div class="t">--text-secondary</div></div>
+  <div class="cell"><div class="chip" style="background:var(--border-strong)"></div><div class="t">--border-strong</div></div>
+  <div class="cell"><div class="chip" style="background:var(--ok)"></div><div class="t">--ok status</div></div>
+ </div>
+</body></html>

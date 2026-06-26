@@ -1,0 +1,84 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Core — Buttons, Tags, Badges, Kicker" subtitle="Neon pill buttons, mono chips, status badges, section eyebrows" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html,body{margin:0}
+  body{
+    background:var(--bg-base); color:var(--text-primary);
+    font-family:var(--font-body); padding:28px 30px;
+    background-image: var(--grad-spot); background-repeat:no-repeat;
+  }
+  .row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:22px}
+  .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+       color:var(--text-muted);width:100%;margin-bottom:10px}
+  .grp{margin-bottom:26px}
+</style>
+</head>
+<body>
+  <div class="grp">
+    <div class="lbl">Buttons — variants · sizes · icon · disabled</div>
+    <div class="row">
+      <span data-c="btn-primary"></span>
+      <span data-c="btn-secondary"></span>
+      <span data-c="btn-ghost"></span>
+      <span data-c="btn-disabled"></span>
+    </div>
+    <div class="row">
+      <span data-c="btn-sm"></span>
+      <span data-c="btn-md"></span>
+      <span data-c="btn-lg"></span>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="lbl">Tags &amp; Badges</div>
+    <div class="row">
+      <span data-c="tags"></span>
+    </div>
+    <div class="row">
+      <span data-c="badges"></span>
+    </div>
+  </div>
+
+  <div class="grp">
+    <div class="lbl">Kicker — section eyebrow</div>
+    <div class="row">
+      <span data-c="kickers"></span>
+    </div>
+  </div>
+
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script type="text/babel">
+  const { Button, Tag, Badge, Kicker } = window.LstmindDesignSystem_9805c3;
+  const R = (sel, node) => ReactDOM.createRoot(document.querySelector(sel)).render(node);
+
+  R('[data-c="btn-primary"]',   <Button variant="primary" icon="→">Обсудить проект</Button>);
+  R('[data-c="btn-secondary"]', <Button variant="secondary" icon="↘">Показать работы</Button>);
+  R('[data-c="btn-ghost"]',     <Button variant="ghost">FAQ</Button>);
+  R('[data-c="btn-disabled"]',  <Button variant="primary" disabled>Недоступно</Button>);
+  R('[data-c="btn-sm"]', <Button size="sm" variant="secondary">small</Button>);
+  R('[data-c="btn-md"]', <Button size="md" variant="secondary">medium</Button>);
+  R('[data-c="btn-lg"]', <Button size="lg" variant="primary" icon="↗">large</Button>);
+
+  R('[data-c="tags"]', <span style={{display:'flex',gap:10,flexWrap:'wrap'}}>
+    <Tag>WordPress</Tag><Tag variant="solid">WooCommerce</Tag>
+    <Tag variant="accent" dot>LIVE</Tag><Tag>Next.js</Tag><Tag>Figma</Tag>
+  </span>);
+  R('[data-c="badges"]', <span style={{display:'flex',gap:12,flexWrap:'wrap'}}>
+    <Badge live>Беру проекты · отвечаю в течение часа</Badge>
+    <Badge>5.0★ Kwork</Badge>
+  </span>);
+  R('[data-c="kickers"]', <span style={{display:'flex',gap:28,flexWrap:'wrap'}}>
+    <Kicker index="01">Почему сайты молчат</Kicker>
+    <Kicker index="04" rule>Работы</Kicker>
+  </span>);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Product — ServiceCard + WorkCard" subtitle="Service offerings and live portfolio cards" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-body);padding:28px 30px}
+  .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin:0 0 14px}
+  .grp{margin-bottom:28px}
+  .svc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .work{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+</style>
+</head>
+<body>
+  <div class="grp"><div class="lbl">Service cards</div><div class="svc" data-c="svc"></div></div>
+  <div class="grp"><div class="lbl">Work cards</div><div class="work" data-c="work"></div></div>
+
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script type="text/babel">
+  const { ServiceCard, WorkCard } = window.LstmindDesignSystem_9805c3;
+  const R = (sel, node) => ReactDOM.createRoot(document.querySelector(sel)).render(node);
+
+  R('[data-c="svc"]', <>
+    <ServiceCard tag="под ключ" title="Сайт под ключ"
+      description="Не шаблон. Собираю под твою задачу — от структуры до релиза."
+      price={<>от <b>15 000 ₽</b></>} />
+    <ServiceCard title="Ускорение сайта"
+      description="Разгоняю до зелёного PageSpeed: картинки, кэш, чистка лишнего."
+      price={<>аудит <b>бесплатно</b></>} />
+  </>);
+
+  R('[data-c="work"]', <>
+    <WorkCard href="#" image="../../assets/imagery/abstract-ink.jpg" name="Сказ по краю" kind="Магазин"
+      description="Магазин арт-объектов ручной работы. Каталог, фильтры, корзина."
+      tags={["WordPress","WooCommerce"]} />
+    <WorkCard href="#" image="../../assets/imagery/neon-banner.jpg" name="СибСтар" kind="С нуля"
+      description="Сайт транспортной компании с нуля: расчёт заявки, галерея."
+      tags={["Вёрстка","SEO-база"]} />
+  </>);
+</script>
+</body>
+</html>

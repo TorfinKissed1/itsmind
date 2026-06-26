@@ -1,0 +1,41 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Forms — Input, Textarea, Accordion" subtitle="Dark fields with neon focus, FAQ accordion" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-base);color:var(--text-primary);font-family:var(--font-body);padding:28px 30px}
+  .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin:0 0 14px}
+  .grp{margin-bottom:28px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+</style>
+</head>
+<body>
+  <div class="grp"><div class="lbl">Inputs</div><div class="grid" data-c="inputs"></div></div>
+  <div class="grp"><div class="lbl">Textarea</div><div data-c="textarea"></div></div>
+  <div class="grp"><div class="lbl">Accordion (FAQ)</div><div data-c="acc"></div></div>
+
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script type="text/babel">
+  const { Input, Textarea, Accordion } = window.LstmindDesignSystem_9805c3;
+  const R = (sel, node) => ReactDOM.createRoot(document.querySelector(sel)).render(node);
+
+  R('[data-c="inputs"]', <>
+    <Input label="Как вас зовут" placeholder="Алексей" />
+    <Input label="Как связаться" hint="Telegram / почта / телефон" placeholder="@username" />
+  </>);
+  R('[data-c="textarea"]', <Textarea label="Что нужно сделать" rows={3} placeholder="Опиши в двух словах, что нужно…" />);
+  R('[data-c="acc"]', <Accordion items={[
+    { q: "Сколько стоит лендинг?", a: "Простой лендинг — от 15 000 ₽ за 5–7 дней. Стандартный, с анимацией — 25–50k за 7–14 дней. Точную смету называю после короткого разбора." },
+    { q: "Делаешь мобильную вёрстку?", a: "Любой сайт собираю mobile-first — большинство клиентов заходят с телефона. Проверяю на трёх устройствах. Адаптив входит в цену." },
+    { q: "Как происходит оплата?", a: "По проекту — обычно 50% предоплата, 50% после сдачи. По часам — по факту в конце недели. Работаю как самозанятый, чек дам." },
+  ]} />);
+</script>
+</body>
+</html>

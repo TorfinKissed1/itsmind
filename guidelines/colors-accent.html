@@ -1,0 +1,27 @@
+<!-- @dsCard group="Colors" viewport="700x190" name="Neon accent — acid & red" subtitle="The single light source. Green default, red alternate" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/>
+<link rel="stylesheet" href="../styles.css"/>
+<style>
+ html,body{margin:0}body{background:var(--bg-base);font-family:var(--font-mono);padding:20px 22px}
+ .lbl{color:var(--text-muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 8px}
+ .row{display:flex;gap:0;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);margin-bottom:16px}
+ .sw{flex:1;height:62px;display:flex;align-items:flex-end;padding:7px;font-size:10px;color:var(--ink-1000)}
+ .glow{box-shadow:var(--glow-md)}
+</style></head><body>
+ <p class="lbl">Acid green — default accent (--accent)</p>
+ <div class="row">
+  <div class="sw" style="background:var(--acid-100)">100</div>
+  <div class="sw" style="background:var(--acid-300)">300</div>
+  <div class="sw glow" style="background:var(--acid-500)">500 ●</div>
+  <div class="sw" style="background:var(--acid-700);color:var(--fog-000)">700</div>
+  <div class="sw" style="background:var(--acid-900);color:var(--fog-000)">900</div>
+ </div>
+ <p class="lbl">Red — alternate ( :root[data-accent="red"] )</p>
+ <div class="row">
+  <div class="sw" style="background:var(--red-100)">100</div>
+  <div class="sw" style="background:var(--red-300)">300</div>
+  <div class="sw" style="background:var(--red-500);color:var(--fog-000)">500 ●</div>
+  <div class="sw" style="background:var(--red-700);color:var(--fog-000)">700</div>
+  <div class="sw" style="background:var(--red-900);color:var(--fog-000)">900</div>
+ </div>
+</body></html>

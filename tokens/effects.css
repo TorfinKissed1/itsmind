@@ -1,0 +1,75 @@
+/* ===========================================================================
+   lstmind — EFFECTS: shadows, neon glows, gradients, blur, textures
+   On an ink canvas, depth comes from glow + hairline borders, not soft
+   gray drop shadows. Neon glow is the brand's signature lighting.
+   =========================================================================== */
+:root {
+  /* --- Elevation (dark-canvas shadows) --------------------------------- */
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md:  0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg:  0 24px 60px rgba(0, 0, 0, 0.6);
+  --shadow-xl:  0 40px 120px rgba(0, 0, 0, 0.7);
+
+  /* --- Neon glow (signature) ------------------------------------------- */
+  --glow-sm:  0 0 12px var(--accent-glow);
+  --glow-md:  0 0 24px var(--accent-glow);
+  --glow-lg:  0 0 48px var(--accent-glow), 0 0 12px var(--accent-glow);
+  --glow-text: 0 0 18px var(--accent-glow);
+  --glow-inset: inset 0 0 0 1px var(--accent), 0 0 18px var(--accent-glow);
+
+  /* --- Borders bundles -------------------------------------------------- */
+  --hairline:        1px solid var(--border);
+  --hairline-soft:   1px solid var(--border-soft);
+  --hairline-accent: 1px solid var(--accent);
+
+  /* --- Glass / blur ----------------------------------------------------- */
+  --blur-sm: blur(6px); /* @kind other */
+  --blur-md: blur(14px); /* @kind other */
+  --blur-lg: blur(28px); /* @kind other */
+  --glass:        rgba(13, 13, 17, 0.6);
+  --glass-strong: rgba(8, 8, 10, 0.8);
+
+  /* --- Gradients -------------------------------------------------------- */
+  --grad-fade-b:  linear-gradient(to bottom, transparent, var(--bg-base)); /* @kind other */
+  --grad-fade-t:  linear-gradient(to top, transparent, var(--bg-base)); /* @kind other */
+  --grad-accent:  linear-gradient(120deg, var(--accent-bright), var(--accent) 55%, var(--accent-deep)); /* @kind other */
+  --grad-ink:     linear-gradient(160deg, var(--ink-700), var(--ink-900)); /* @kind other */
+  --grad-vignette: radial-gradient(125% 95% at 50% 38%, transparent 32%, rgba(0,0,0,0.45) 72%, rgba(0,0,0,0.82) 100%); /* @kind other */
+  --grad-spot:    radial-gradient(55% 55% at 50% 42%, rgba(181,9,18,0.20), rgba(117,2,15,0.06) 45%, transparent 72%); /* @kind other */
+  --grad-blood:   radial-gradient(60% 70% at 70% 30%, rgba(181,9,18,0.34), rgba(117,2,15,0.10) 40%, transparent 72%); /* @kind other */
+  --grad-duotone: linear-gradient(160deg, rgba(117,2,15,0.55), rgba(5,3,6,0.85)); /* @kind other *//* multiply over imagery */
+
+  /* --- Noise / grain (data-uri, tiles seamlessly) ---------------------- */
+  --noise-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>"); /* @kind other */
+}
+
+/* Reusable grain overlay — drop <div class="ds-grain"></div> or apply ::after */
+.ds-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise-url);
+  background-size: 140px 140px;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Duotone imagery — push any photo toward warm-ink + oxblood.
+   Usage: <div class="ds-duotone"><img …></div>  */
+.ds-duotone { position: relative; overflow: hidden; }
+.ds-duotone > img,
+.ds-duotone > picture > img {
+  filter: grayscale(1) contrast(1.22) brightness(0.82);
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.ds-duotone::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: var(--grad-duotone);
+  mix-blend-mode: multiply;
+}
+.ds-duotone::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(70% 70% at 60% 35%, rgba(181,9,18,0.28), transparent 70%);
+  mix-blend-mode: screen;
+}
